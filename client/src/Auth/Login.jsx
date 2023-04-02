@@ -1,12 +1,13 @@
 import React from 'react'
 import './Login.css'
+import { useState, useEffect } from 'react'
+import Home from './Home'
 const Login = () => {
-    const [username, setUsername] = useState('')
-    const[password, setPassword] = useState('')
+   
   
     const [form, setForm] = useState({
       username:'',
-      password
+      password: '',
     })
   
     const handleChange = (e) =>{
@@ -15,18 +16,12 @@ const Login = () => {
   
     }
   
-    useEffect(() => {
-      fetch('http://localhost:8000')
-      .then(resoponse => resoponse.json())
-      .then(res => setData(res))
-      .catch(error => console.log(error))
-    },[])
-  
+   
   
   
     const handleSubmit =async (e) =>{
       e.preventDefault();
-      const response =  await fetch("http://localhost:8000",{
+      const response =  await fetch("http://localhost:8000/login",{
         method:'POST',
         headers:{
           'Content-Type': 'application/json',
@@ -34,11 +29,12 @@ const Login = () => {
         body: JSON.stringify(form),
       });
       const data = await response.json();
-      
+      console.log(data)
     }
    
   return (
     <div>
+    <h1>Login</h1>
           <from  >
             <label>Username</label>
             <input type='text' name='username' value={form.username} onChange={handleChange}></input>
@@ -48,7 +44,7 @@ const Login = () => {
             <br></br>
             <input type='submit' onClick={handleSubmit}></input>
           </from>
-       
+        <Home/>
       </div>
   )
 }
