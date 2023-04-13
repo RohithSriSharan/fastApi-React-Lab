@@ -1,30 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react';
 
+import { Redirect } from 'react-router-dom';
+import AuthContext from "./AuthContext";
 const Home = () => {
-    const token = localStorage.getItem('access_token');
-    const [home, setHome] = useState('')
-    const handleHome = async(e) =>{
-        e.preventDefault()
-        const response = await fetch("http://localhost:8000/home",{
-            method: 'GET',
-            headers: {
-              'Authorization': `Bearer ${token}`
-            }
-        })
-        .then(response => response.json())
-        .then(data => setHome(data))
-        .catch(error => console.log(error))
-    }
-    
+  const { isLoggedIn } = useContext(AuthContext);
+
+  if (!isLoggedIn) {
+    return <Redirect to="/login" />;
+  }
+
   return (
-    <div>Home
-
-    <h1>{home}</h1>
-    <button onClick={handleHome}>Home</button>
-    
+    <div>
+      <h1>Welcome to the Home Page</h1>
+      <p>You are logged in!</p>
     </div>
-        
-  ) 
-}
+  );
+};
 
-export default Home
+export default Home;

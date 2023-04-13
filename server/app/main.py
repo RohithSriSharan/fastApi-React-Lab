@@ -1,4 +1,4 @@
-from fastapi import Request, FastAPI, HTTPException, status, Depends
+from fastapi import Request,Response, FastAPI, HTTPException, status, Depends
 from models import User
 from fastapi.middleware.cors import CORSMiddleware
 from mongoDB import user_collection
@@ -147,8 +147,11 @@ async def login(request: Request):
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Incorrect password")
     else:
         access_token = create_access_token(data={"sub": user['username']}, expires_delta=timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+        print(access_token)
+        response = Response()
+        response.headers['Authorization'] = f"Bearer {access_token}"
         return {'access_token': access_token, 'token_type': 'bearer'}
-
+        
 @app.get('/home')
 async def home(current_user: User = Depends(get_current_active_user), token: str = Depends(OAuth2_scheme)):
     return {'message': 'Hello, ' + current_user['username']}
