@@ -35,6 +35,7 @@ const Login = () => {
   if (redirectToHome) {
     return <Redirect to="/home" />;
   }
+  const isValid = form.username !== '' && form.password !== ''
 
   return (
     <div>
@@ -42,10 +43,12 @@ const Login = () => {
       <form>
         <label>Username</label>
         <input
-          type="text"
+          type="email"
           name="username"
           value={form.username}
           onChange={handleChange}
+          autoComplete="current-user"
+          required
         />
         <br />
         <label>Password</label>
@@ -54,10 +57,13 @@ const Login = () => {
           name="password"
           value={form.password}
           onChange={handleChange}
+          autoComplete="current-password"
+          required
         />
         <br />
-        <input type="submit" onClick={handleSubmit} />
+        <input type="submit" disabled={!isValid} onClick={handleSubmit} />
       </form>
+      <a href="/register"><button>Register</button></a>
     </div>
   );
 };

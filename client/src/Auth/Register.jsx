@@ -1,6 +1,6 @@
 import React from 'react'
 import './Register.css'
-import {useState, useEffect} from 'react'
+import {useState } from 'react'
 
 const Register = () => {
   const [registerform, setRegisterForm] = useState({
@@ -22,19 +22,21 @@ const Register = () => {
     const data = await response.json();
     console.log(data)
   }
-    
+  const isFormValid = registerform.email !== '' && registerform.password !== ''
+
   return (
     <div>
     <h1>Register</h1>
     <form>
         <label>Email</label>
-        <input type='text' value={registerform.email} name='email' onChange={handleChange} required></input>
+        <input type='email' value={registerform.email} name='email' onChange={handleChange} autoComplete='current_email' required></input>
         <br></br>
         <label>Password</label>
-        <input type='text' value={registerform.password} name='password' onChange={handleChange} required></input>
+        <input type='password' value={registerform.password} name='password' onChange={handleChange} autoComplete='current_password' required></input>
         <br></br>
-        <button type='submit' onClick={handleSubmit}>Submit</button>
+        <button type='submit' onClick={handleSubmit} disabled={!isFormValid} >Submit</button>
     </form>
+    <a href="/login"><button>Login</button></a>
     </div>
   )
 }

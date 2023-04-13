@@ -1,11 +1,11 @@
 import './App.css';
-import { useState, useEffect, useContext } from 'react'
+
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 import Login from '../src/Auth/Login.jsx'
 import Register from './Auth/Register';
 import Home from './Auth/Home';
-import { AuthProvider, AuthContext } from './Auth/AuthContext';
+import { AuthProvider } from './Auth/AuthContext';
 
 
 function App() {
