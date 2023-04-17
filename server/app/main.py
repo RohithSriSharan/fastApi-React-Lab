@@ -6,7 +6,7 @@ from passlib.context import CryptContext
 from fastapi.security import OAuth2, OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import jwt, JWTError
 from datetime import datetime, timedelta
-from fashionWomen import womenFashion
+from fashionWomen import womenFashion, router as fashion_women_router
 
 
 app = FastAPI()
@@ -131,12 +131,6 @@ async def register(request: Request):
 #     return logging_user
 
 
-
-
-# @app.get('/home')
-# async def home(request: Request):
-#     return 'Home'
-
 @app.post('/login')
 async def login(request: Request):
     loginForm_response = await request.json()
@@ -159,19 +153,8 @@ async def home(current_user: User = Depends(get_current_active_user), token: str
     return {'message': 'Hello, ' + current_user['username']}
 
 
-@app.get("/women/fashion")
-async def product():
-    products = womenFashion()
-    print(products)
-    return products
-    
 
+############### ROUTES ###########################
 
+app.include_router(fashion_women_router)
 
-@app.get("/product/{product_id}")
-async def get_product(product_id: int):
-    products = womenFashion()
-    for product in products:
-        if product["id"] == product_id:
-            return product
-    return {"message": "Product not found"}
