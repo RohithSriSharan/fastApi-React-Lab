@@ -7,7 +7,7 @@ const FashionWomenInfo = () => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:8000/product/${id}`)
+        fetch(`http://127.0.0.1:8000/women/fashion/${id}`)
             .then(response => response.json())
             .then(data => {
                 setProduct(data);
@@ -22,7 +22,7 @@ const FashionWomenInfo = () => {
     return (
         <div>
             <h1>{product.name}</h1>
-            <img src={product.image}></img>
+            <img src={product.image} alt="women-fashion"></img>
             <p>{product.description}</p>
             <p>Price: {product.actual_price}</p>
             <p>Category: {product.category}</p>

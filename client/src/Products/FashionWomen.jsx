@@ -2,11 +2,11 @@ import { useEffect, useState , useContext} from "react"
 import React from 'react'
 import AuthContext from "../Auth/AuthContext";
 import { Redirect, Link } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
+
 import './FashionWomen.css'
 
 const FashionWomen = () => {
-    const history = useHistory();
+  
     const [products, setProducts] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const { isLoggedIn } = useContext(AuthContext);
@@ -15,6 +15,7 @@ const FashionWomen = () => {
         fetch("http://127.0.0.1:8000/women/fashion")
             .then(response => response.json())
             .then(data => {
+        
                 setProducts(data);
             })
             .catch(error => console.log(error))
@@ -37,10 +38,9 @@ const FashionWomen = () => {
                 <ul className="product-card" >
                     {filteredProducts.map(product =>
                         
-                        <Link className="link" to={`/product/`+ product.id}>
-                            <li  key={product.id} >
-                            
-                                <img src={product.image}></img>
+                        <Link className="link" to={`/product/`+ product.id} key={product.id} >
+                            <li   >
+                                <img src={product.image} alt="fashion-women"></img>
                                 <p>{product.name}</p>
                                 <p>{product.actual_price}</p>
                             </li>

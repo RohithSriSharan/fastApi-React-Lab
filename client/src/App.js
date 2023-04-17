@@ -1,6 +1,6 @@
 import './App.css';
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Login from '../src/Auth/Login.jsx'
 import Register from './Auth/Register';

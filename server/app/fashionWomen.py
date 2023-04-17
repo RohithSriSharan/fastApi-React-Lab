@@ -6,7 +6,7 @@ router = APIRouter()
 
 def womenFashion():
 
-    data = pd.read_csv('C:/Users/rohit/OneDrive/Desktop/pythonWebApps/fastApi-react-lab/server/app/archive (15)/Air Conditioners.csv')
+    data = pd.read_csv('C:/Users/rohit/OneDrive/Desktop/pythonWebApps/fastApi-react-lab/server/app/archive (15)/Womens Fashion.csv')
 
     products = data.head().to_json(orient='records')
     return json.loads(products) # convert to a Python object
@@ -20,7 +20,7 @@ async def product():
 
 
 
-@router.get("/product/{product_id}")
+@router.get("/women/fashion/{product_id}")
 async def get_product(product_id: int):
     products = womenFashion()
     for product in products:
