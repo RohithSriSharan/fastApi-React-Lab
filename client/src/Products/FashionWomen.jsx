@@ -25,10 +25,7 @@ const FashionWomen = () => {
     );
 
 
-    const handleProductRoute = (productId) => {
-        // history.push(`/product/${productId}`);
-    }
-    
+   
     
 
     if(!isLoggedIn){

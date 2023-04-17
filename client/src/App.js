@@ -6,7 +6,8 @@ import Login from '../src/Auth/Login.jsx'
 import Register from './Auth/Register';
 import Home from './Auth/Home';
 import { AuthProvider } from './Auth/AuthContext';
-
+import FashionWomenInfo from './Products/FashionWomenInfo';
+import FashionWomen from './Products/FashionWomen';
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Redirect from="/" to="/login" />
+          <Route path='/women-fashion' component={FashionWomen}/>
+          <Route path="/product/:id" component={FashionWomenInfo} />
         </Switch>
       </Router>
     </AuthProvider>

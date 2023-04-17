@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import React from 'react'
 import { useParams } from "react-router-dom";
 
-const ProductInfo = () => {
+const FashionWomenInfo = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
 
@@ -30,4 +30,4 @@ const ProductInfo = () => {
     )
 }
 
-export default ProductInfo
+export default FashionWomenInfo

@@ -6,10 +6,12 @@ from passlib.context import CryptContext
 from fastapi.security import OAuth2, OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import jwt, JWTError
 from datetime import datetime, timedelta
-
+from fashionWomen import womenFashion
 
 
 app = FastAPI()
+
+wf = womenFashion()
 
 origins = [
    
@@ -155,3 +157,21 @@ async def login(request: Request):
 @app.get('/home')
 async def home(current_user: User = Depends(get_current_active_user), token: str = Depends(OAuth2_scheme)):
     return {'message': 'Hello, ' + current_user['username']}
+
+
+@app.get("/women/fashion")
+async def product():
+    products = womenFashion()
+    print(products)
+    return products
+    
+
+
+
+@app.get("/product/{product_id}")
+async def get_product(product_id: int):
+    products = womenFashion()
+    for product in products:
+        if product["id"] == product_id:
+            return product
+    return {"message": "Product not found"}
