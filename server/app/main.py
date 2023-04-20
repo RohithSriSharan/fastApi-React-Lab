@@ -8,6 +8,7 @@ from jose import jwt, JWTError
 from datetime import datetime, timedelta
 from fashionWomen import womenFashion, router as fashion_women_router
 
+from Test import router as search
 
 app = FastAPI()
 
@@ -158,3 +159,5 @@ async def home(current_user: User = Depends(get_current_active_user), token: str
 
 app.include_router(fashion_women_router)
 
+
+app.include_router(search)

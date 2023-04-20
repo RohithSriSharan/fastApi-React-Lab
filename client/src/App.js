@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Login from '../src/Auth/Login.jsx'
 import Register from './Auth/Register';
-import Home from './Auth/Home';
+import Home from './Home';
 import { AuthProvider } from './Auth/AuthContext';
 import FashionWomenInfo from './Products/FashionWomenInfo';
 import FashionWomen from './Products/FashionWomen';
