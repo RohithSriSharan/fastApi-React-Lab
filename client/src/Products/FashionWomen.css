@@ -9,7 +9,7 @@
 
 input{
     width: 300px;
-    height: 70px;
+    height: 30px;
 }
 .fashion-women-div ul{
     display: flex;
@@ -44,4 +44,4 @@ input{
 .link{
     text-decoration: none;
     color: black;
-}
+} 

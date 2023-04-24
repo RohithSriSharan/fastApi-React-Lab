@@ -8,7 +8,7 @@ def womenFashion():
 
     data = pd.read_csv('C:/Users/rohit/OneDrive/Desktop/pythonWebApps/fastApi-react-lab/server/app/archive (15)/Womens Fashion.csv')
 
-    products = data.head().to_json(orient='records')
+    products = data.to_json(orient='records')
     return json.loads(products) # convert to a Python object
 
 @router.get("/women/fashion")

@@ -8,6 +8,8 @@ import Home from './Home';
 import { AuthProvider } from './Auth/AuthContext';
 import FashionWomenInfo from './Products/FashionWomenInfo';
 import FashionWomen from './Products/FashionWomen';
+import SearchProductInfo from './SearchProductInfo';
+
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
           <Route path="/register" component={Register} />
           <Route path='/women-fashion' component={FashionWomen}/>
           <Route path="/product/:id" component={FashionWomenInfo} />
+          <Route path="/search/:id" component={SearchProductInfo}/>
         </Switch>
       </Router>
     </AuthProvider>

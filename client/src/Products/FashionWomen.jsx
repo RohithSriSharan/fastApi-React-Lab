@@ -4,12 +4,15 @@ import AuthContext from "../Auth/AuthContext";
 import { Redirect, Link } from "react-router-dom";
 
 import './FashionWomen.css'
-
+import Pagination from "../Pagination";
 const FashionWomen = () => {
   
     const [products, setProducts] = useState([]);
-    const [searchQuery, setSearchQuery] = useState('');
+   
     const { isLoggedIn } = useContext(AuthContext);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage, setPostsPerPage] = useState(50)
+
 
     useEffect(() =>{
         fetch("http://127.0.0.1:8000/women/fashion")
@@ -21,11 +24,14 @@ const FashionWomen = () => {
             .catch(error => console.log(error))
     },[])
 
-    const filteredProducts = products.filter(product => 
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    // const filteredProducts = products.filter(product => 
+    //     product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    // );
 
-
+    
+    const lastPostIndex = currentPage * postsPerPage;
+    const firstPostIndex = lastPostIndex - postsPerPage;
+    const currentItems = products.slice(firstPostIndex, lastPostIndex);
    
     
 
@@ -34,9 +40,9 @@ const FashionWomen = () => {
     } else {
         return (
             <div className="fashion-women-div">FashionWomen
-                <input type="text" value={searchQuery} onChange={event => setSearchQuery(event.target.value)}></input>
+
                 <ul className="product-card" >
-                    {filteredProducts.map(product =>
+                    {currentItems.map(product =>
                         
                         <Link className="link" to={`/product/`+ product.id} key={product.id} >
                             <li   >
@@ -50,6 +56,7 @@ const FashionWomen = () => {
                         
                     )}
                 </ul>
+                <Pagination totalPosts = {products.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage}></Pagination>
             </div>
         )
     }    

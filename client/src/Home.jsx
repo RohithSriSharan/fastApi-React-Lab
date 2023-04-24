@@ -56,14 +56,18 @@ const Home = () => {
                 </div>
                     {Object.keys(products).map((category, index) => (
                       <div key={index}>
-                        <h2>{category}</h2>
+                        
+                     
                         {JSON.parse(products[category]).map((product, index) => (
-                          <div key={index}>
-                            <h3>{product.name}</h3>
-                            <p>{product.description}</p>
-                            <img src={product.image}></img>
-                            <p>Price: {product.actual_price}</p>
-                          </div>
+                          <Link to={`/search/`+ product.id}>
+                              <div key={index}>
+                              <h3>{product.name}</h3>
+                              <p>{product.description}</p>
+                              <img src={product.image}></img>
+                              <p>Price: {product.actual_price}</p>
+                            </div>
+                          </Link>
+                          
                         ))}
                   </div>
                 ))}
