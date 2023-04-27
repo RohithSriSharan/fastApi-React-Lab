@@ -10,6 +10,7 @@ const FashionWomen = () => {
     const [products, setProducts] = useState([]);
    
     const { isLoggedIn } = useContext(AuthContext);
+    
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(50)
 
@@ -24,6 +25,7 @@ const FashionWomen = () => {
             .catch(error => console.log(error))
     },[])
 
+    console.log(products)
     // const filteredProducts = products.filter(product => 
     //     product.name.toLowerCase().includes(searchQuery.toLowerCase())
     // );

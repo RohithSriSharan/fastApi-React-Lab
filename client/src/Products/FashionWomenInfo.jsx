@@ -14,18 +14,19 @@ const FashionWomenInfo = () => {
             })
             .catch(error => console.log(error))
     }, [id])
+    
 
     if (!product) {
         return <div>Loading...</div>
     }
-
+    
     return (
         <div>
             <h1>{product.name}</h1>
             <img src={product.image} alt="women-fashion"></img>
             <p>{product.description}</p>
             <p>Price: {product.actual_price}</p>
-            <p>Category: {product.category}</p>
+            <p>Category: {product.sub_category}</p>
         </div>
     )
 }

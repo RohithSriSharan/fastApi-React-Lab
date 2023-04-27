@@ -7,10 +7,15 @@ const Pagination = (props) => {
     pages.push(i)
   } 
 
+  const handleClick = (page) => {
+    props.setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div>
       {pages.map((page, index) =>{
-        return <button onClick={() => props.setCurrentPage(page)} key={index}>{page}</button>
+        return <button onClick={() => handleClick(page)} key={index}>{page}</button>
       })}
     </div>
   )
