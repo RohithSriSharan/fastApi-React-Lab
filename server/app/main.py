@@ -160,3 +160,8 @@ app.include_router(fashion_women_router)
 
 
 app.include_router(search)
+
+@app.post('/addtobasket')
+async def addToBasket(request: Request):
+    addItem = await request.json()
+    print(addItem)
