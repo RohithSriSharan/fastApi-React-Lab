@@ -1,0 +1,17 @@
+.home-header{
+
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: aqua;  
+    /* remove here */
+}
+.basket{
+    font-size: 2rem;
+    background-color:white ;
+    border: none;
+}
+.basket:hover{
+   cursor: pointer;
+   transform: translateY(-10px);
+}

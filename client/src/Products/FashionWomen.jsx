@@ -5,7 +5,12 @@ import { Redirect, Link } from "react-router-dom";
 
 import './FashionWomen.css'
 import Pagination from "../Pagination";
+
+import ProductCard from "../Components/ProductCard";
+
 const FashionWomen = () => {
+
+
   
     const [products, setProducts] = useState([]);
    
@@ -42,23 +47,26 @@ const FashionWomen = () => {
     } else {
         return (
             <div className="fashion-women-div">FashionWomen
-
-                <ul className="product-card" >
-                    {currentItems.map(product =>
+                <div className="fashion-women-products">
+                    <ul>
+                        {currentItems.map(product =>
+                                    <li>
+                                    <ProductCard className="product"  id={product.id}
+                                        name = {product.name}
+                                        image = {product.image}
+                                    />
+                                    </li>
+                               
                         
-                        <Link className="link" to={`/product/`+ product.id} key={product.id} >
-                            <li   >
-                                <img src={product.image} alt="fashion-women"></img>
-                                <p>{product.name}</p>
-                                <p>{product.actual_price}</p>
-                            </li>
-                            
-                        
-                        </Link>
-                        
-                    )}
-                </ul>
-                <Pagination totalPosts = {products.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage}></Pagination>
+                        )}
+                        </ul>
+                       
+                </div>
+                    
+                <div className="fashion-women-pagination">
+                    <Pagination totalPosts = {products.length} postsPerPage={postsPerPage} setCurrentPage={setCurrentPage}></Pagination>
+                </div>
+                
             </div>
         )
     }    

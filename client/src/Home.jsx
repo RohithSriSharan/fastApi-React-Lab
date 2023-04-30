@@ -3,6 +3,9 @@ import { Link, useParams } from 'react-router-dom';
 import { Redirect } from 'react-router-dom';
 import AuthContext from "./Auth/AuthContext";
 import Pagination from './Pagination';
+import './Home.css'
+
+import { SlBasket } from 'react-icons/sl';
 
 
 const Home = () => {
@@ -36,6 +39,16 @@ const Home = () => {
     
      
   }
+  const handleAddToBasket = async (product) =>{
+    console.log("Adding to basket")
+    fetch("http://localhost:8000/addtobasket",{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify(product)
+    })
+  }
   
   
   const lastItemIndex = currentPage * itemsPerPage;
@@ -52,28 +65,30 @@ const Home = () => {
     return (
       <div>
         <div><button onClick={handleLogout}>Log Out</button></div>
-            <div>
+            <div className='home-header'>
               <form onSubmit={handleSearch}>
                 <input type='text' value={query} onChange={handleQuery} />
                 <button type='submit'>Search</button>
               </form>
+              <button className='basket'><SlBasket/></button>
             </div>
             <ul>
-                {currentItems.map((product) => (
-                  <Link to={`/search/${product.tag}/${product.id}`} target="_blank" key={product.id}>
-                      <li >
-                        <h3>{product.name}</h3>
-                        <p>{product.description}</p>
-                        <img src={product.image}></img>
-                        <p>Price: {product.actual_price}</p>
-                        <p>category: {product.sub_category}</p>
-                        <p>category_id: {product.id}</p>
-                        <p>tag: {product.tag}</p>
-                      </li>
-                  </Link>
-                ))
-                }
-          
+            {currentItems.map((product) => (
+              <div key={product.id}>
+                <Link to={`/search/${product.tag}/${product.id}`} target="_blank">
+                  <li>
+                    <h3>{product.name}</h3>
+                    <p>{product.description}</p>
+                    <img src={product.image}></img>
+                    <p>Price: {product.actual_price}</p>
+                    <p>category: {product.sub_category}</p>
+                    <p>category_id: {product.id}</p>
+                    <p>tag: {product.tag}</p>
+                  </li>
+                </Link>
+                <button onClick={() => handleAddToBasket(product)}>Add to Basket</button>
+              </div>
+            ))}
             
             </ul>
           
