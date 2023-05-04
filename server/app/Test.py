@@ -33,6 +33,7 @@ async def get_query(request: Request):
     search_param = response['search']
     print(search_param)
     filtered_products = []
+
     for key in products.keys():
         for product in products[key]:
             if search_param.lower() in product["name"].lower():

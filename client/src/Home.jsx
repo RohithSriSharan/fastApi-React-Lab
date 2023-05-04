@@ -5,6 +5,7 @@ import AuthContext from "./Auth/AuthContext";
 import Pagination from './Pagination';
 import './Home.css'
 
+
 import { SlBasket } from 'react-icons/sl';
 
 
@@ -57,7 +58,7 @@ const Home = () => {
 
   console.log(products)
 
-
+  
   
   if (!isLoggedIn) {
     return <Redirect to="/login" />;
@@ -67,10 +68,15 @@ const Home = () => {
         <div><button onClick={handleLogout}>Log Out</button></div>
             <div className='home-header'>
               <form onSubmit={handleSearch}>
-                <input type='text' value={query} onChange={handleQuery} />
+                <input type='text' value={query} onChange={handleQuery} required/>
                 <button type='submit'>Search</button>
               </form>
-              <button className='basket'><SlBasket/></button>
+              <div>
+                <button className='basket'><SlBasket/></button>
+                <a href='/davinci'><button className='basket'>D</button></a>
+              </div>
+              
+              
             </div>
             <ul>
             {currentItems.map((product) => (
@@ -96,6 +102,7 @@ const Home = () => {
         
           <Pagination totalPosts={products.length} postsPerPage={itemsPerPage} setCurrentPage={setCurrentPage} />
         </div>
+        
       </div>
     );
   }

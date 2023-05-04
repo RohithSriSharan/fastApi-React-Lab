@@ -7,6 +7,7 @@ from fastapi.security import OAuth2, OAuth2PasswordBearer, OAuth2PasswordRequest
 from jose import jwt, JWTError
 from datetime import datetime, timedelta
 from fashionWomen import womenFashion, router as fashion_women_router
+from davinci import router as davinciRouter
 
 from Test import router as search
 
@@ -158,7 +159,7 @@ async def home(current_user: User = Depends(get_current_active_user), token: str
 
 app.include_router(fashion_women_router)
 
-
+app.include_router(davinciRouter)
 app.include_router(search)
 
 @app.post('/addtobasket')

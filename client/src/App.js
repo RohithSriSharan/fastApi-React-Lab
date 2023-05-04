@@ -10,6 +10,7 @@ import FashionWomenInfo from './Products/FashionWomenInfo';
 import FashionWomen from './Products/FashionWomen';
 
 import SearchProductInfo from './SearchProductInfo';
+import davinci from './Davinci/davinci';
 
 
 function App() {
@@ -25,9 +26,11 @@ function App() {
           <Route path='/women-fashion' component={FashionWomen}/>
           <Route path="/product/:id" component={FashionWomenInfo} />
           <Route path="/search/:tag/:id" component={SearchProductInfo}/>
+          <Route  path="/davinci" component={davinci}></Route>
         </Switch>
       </Router>
     </AuthProvider>
+  
   );
 }
 

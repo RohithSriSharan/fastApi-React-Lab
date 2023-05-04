@@ -1,28 +1,39 @@
 import openai
 from Test import products
+import os
+from dotenv import load_dotenv
+from fastapi import APIRouter, Request
+
+router = APIRouter()
+
+load_dotenv()
 
 # Set the API key
-openai.api_key = "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"
+openai.api_key = os.getenv("OPEN_AI_KEY")
 
 # Test the authentication
+davinciPrompt = ""
 
-prompt = "suggest a best air conditioner brand"
-completions = openai.Completion.create(
-    engine="text-curie-001",
-    prompt=prompt,
-    max_tokens=500,
-)
+@router.post('/davinciprompt')
+async def promtreq(request: Request):
+    response =await request.json()
+    prompt = response["prompt"]
+    print(prompt)
+    global davinciPrompt
+    davinciPrompt = prompt
 
-query = completions["choices"][0]["text"]
-print(query)
+    completions = openai.Completion.create(
+        engine="text-curie-001",
+        prompt=davinciPrompt,
+        max_tokens=500,
+    )
 
-# Split the query string into individual words
-query_words = query.split()
+    front_end = completions["choices"][0]["text"]
+    print(front_end)
+    return front_end
 
-# Search for matching product names
-for key, value in products.items():
-    for product in value:
-        for word in query_words:
-            if word in product["name"]:
-                print(product)
-print(query_words)
+
+
+
+
+

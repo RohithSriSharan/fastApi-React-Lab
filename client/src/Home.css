@@ -10,6 +10,7 @@
     font-size: 2rem;
     background-color:white ;
     border: none;
+    margin-right: 20px;
 }
 .basket:hover{
    cursor: pointer;

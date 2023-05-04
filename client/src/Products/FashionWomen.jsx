@@ -50,12 +50,12 @@ const FashionWomen = () => {
                 <div className="fashion-women-products">
                     <ul>
                         {currentItems.map(product =>
-                                    <li>
+                                <li>
                                     <ProductCard className="product"  id={product.id}
                                         name = {product.name}
                                         image = {product.image}
                                     />
-                                    </li>
+                                </li>
                                
                         
                         )}
