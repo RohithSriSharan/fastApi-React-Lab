@@ -46,7 +46,7 @@ const FashionWomen = () => {
         return <Redirect to={'/login'} />
     } else {
         return (
-            <div className="fashion-women-div">FashionWomen
+            <div className="fashion-women-div">
                 <div className="fashion-women-products">
                     <ul>
                         {currentItems.map(product =>
@@ -54,7 +54,9 @@ const FashionWomen = () => {
                                     <ProductCard className="product"  id={product.id}
                                         name = {product.name}
                                         image = {product.image}
+                                        price= {product.actual_price}
                                     />
+                                    
                                 </li>
                                
                         

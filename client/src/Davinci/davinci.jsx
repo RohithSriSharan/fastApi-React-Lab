@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
+import './davinci.css'
+import { VscHubot } from 'react-icons/vsc';
 
 const Davinci = () => {
     const [Prompt, setPrompt] = useState("")
     const [davinciResponse, setDavinciResponse] = useState("")
+  
 
     const handlePrompt = (e) =>{
             setPrompt(e.target.value)
@@ -19,25 +22,29 @@ const Davinci = () => {
             body: JSON.stringify({"prompt": Prompt})
 
         })
+        
         const responseJson = await response.json()
-        console.log(responseJson)
+   
         setDavinciResponse(responseJson)
-
+       
         
     }
    
 
   return (
     <div className='davinci-div'>
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input name='prompt' type='text' placeholder='Ask Davinci for recommendations' value={Prompt} onChange={handlePrompt}></input> 
-                <button type='submit'> Submit</button>
+
+
+        <div className='davinci-response'>
+            <p><VscHubot className='davinci-icon'/>{davinciResponse}</p>
+        </div>
+        <div className='davinci-form'>
+            <form className='davinci-form-form' onSubmit={handleSubmit}>
+                <input className='form-input' name='prompt' type='text' placeholder='Ask Davinci' value={Prompt} onChange={handlePrompt} required></input> 
+                <button className='form-button' type='submit'>Submit</button>
             </form>
         </div>
-        <div>
-            <p>{davinciResponse}</p>
-        </div>
+        
         
     </div>
   )

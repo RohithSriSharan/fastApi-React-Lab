@@ -6,8 +6,10 @@ import Pagination from './Pagination';
 import './Home.css'
 
 
-import { SlBasket } from 'react-icons/sl';
+import { BsBasket3Fill } from 'react-icons/bs';
+import {VscHubot } from 'react-icons/vsc';
 
+import { MdOutlineAddShoppingCart } from 'react-icons/md';
 
 const Home = () => {
   const { isLoggedIn } = useContext(AuthContext);
@@ -67,40 +69,43 @@ const Home = () => {
       <div>
         <div><button onClick={handleLogout}>Log Out</button></div>
             <div className='home-header'>
-              <form onSubmit={handleSearch}>
+              <form className='search-form' onSubmit={handleSearch}>
                 <input type='text' value={query} onChange={handleQuery} required/>
                 <button type='submit'>Search</button>
               </form>
               <div>
-                <button className='basket'><SlBasket/></button>
-                <a href='/davinci'><button className='basket'>D</button></a>
+                <a href='/basket'><button className='basket'><BsBasket3Fill/></button></a>
+                <a href='/davinci'><button className='basket'><VscHubot/></button></a>
               </div>
               
               
             </div>
-            <ul>
-            {currentItems.map((product) => (
-              <div key={product.id}>
-                <Link to={`/search/${product.tag}/${product.id}`} target="_blank">
-                  <li>
-                    <h3>{product.name}</h3>
-                    <p>{product.description}</p>
-                    <img src={product.image}></img>
-                    <p>Price: {product.actual_price}</p>
-                    <p>category: {product.sub_category}</p>
-                    <p>category_id: {product.id}</p>
-                    <p>tag: {product.tag}</p>
-                  </li>
-                </Link>
-                <button onClick={() => handleAddToBasket(product)}>Add to Basket</button>
-              </div>
+            <div className='search-products'>
+              <ul >
+              {currentItems.map((product) => (
+                <div id="product" key={product.id}>
+                  <Link className='search-link' to={`/search/${product.tag}/${product.id}`} target="_blank">
+                    <li>
+                      
+                      <img src={product.image}></img>
+                      <h3>{product.name}</h3>
+                      <p className='search-price'>{product.actual_price}</p>
+                      
+                      
+                      
+                      
+                    </li>
+                  </Link>
+                  <button onClick={() => handleAddToBasket(product)}><MdOutlineAddShoppingCart/></button>
+                </div>
             ))}
             
             </ul>
+            </div>
           
         <div>
         
-          <Pagination totalPosts={products.length} postsPerPage={itemsPerPage} setCurrentPage={setCurrentPage} />
+          <Pagination className="pagination" totalPosts={products.length} postsPerPage={itemsPerPage} setCurrentPage={setCurrentPage} />
         </div>
         
       </div>

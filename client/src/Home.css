@@ -3,16 +3,110 @@
     display: flex;
     justify-content: space-between;
     padding: 15px;
-    background-color: aqua;  
-    /* remove here */
+   
+  
+}
+.home-header .search-form{
+    display: flex;
+   
+}
+.home-header .search-form input{
+    width: 80vw;
+    border: none;
+    border-radius: 8px;
+    border-bottom: 2px solid rgba(16, 16, 16, 0.879);
+    padding-left: 20px;
+}
+.home-header .search-form input:focus{
+    outline: none;
+}
+.home-header .search-form button{
+    width: 5vw;
+    margin-left:10px ;
+    color: white;
+    font-weight: bolder;
+    background-color: black;
+    border-radius: 8px;
+}
+.home-header .search-form button:hover{
+    cursor: pointer;
+    transform: translateY(-10px)
 }
 .basket{
     font-size: 2rem;
     background-color:white ;
     border: none;
     margin-right: 20px;
+    font-size: 2rem;
+   
 }
 .basket:hover{
    cursor: pointer;
    transform: translateY(-10px);
+}
+
+.search-products{
+
+    display: flex;
+    flex-wrap: wrap;
+    
+    width: 100vw;
+ 
+}
+
+.search-products ul{
+    display: flex;
+    flex-direction: row;
+    width: 95vw;
+    flex-wrap: wrap;
+ 
+
+}
+
+
+#product{
+box-shadow: 0px 2px 1px 1px rgba(209, 199, 199, 0.605);
+margin-right:2px ;
+
+
+
+}
+.search-link{
+    text-decoration: none;
+    color: black;
+}
+#product li{
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    padding-left:30px ;
+    margin-top: 20px;
+}
+
+#product li img{
+    width: 300px;
+    height: 100px;
+}
+#product button{
+    color: black;
+    background:none;
+    border: none;
+    font-size: 3rem;
+    display: flex;
+    margin-left: 300px;
+}
+#product button:hover{
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.search-price{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    display: flex;
+    position: absolute;
+    margin-top: 300px;
 }

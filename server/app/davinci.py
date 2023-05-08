@@ -28,9 +28,9 @@ async def promtreq(request: Request):
         max_tokens=500,
     )
 
-    front_end = completions["choices"][0]["text"]
-    print(front_end)
-    return front_end
+    davinciResponse = completions["choices"][0]["text"]
+ 
+    return davinciResponse
 
 
 

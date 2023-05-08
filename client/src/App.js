@@ -11,7 +11,7 @@ import FashionWomen from './Products/FashionWomen';
 
 import SearchProductInfo from './SearchProductInfo';
 import davinci from './Davinci/davinci';
-
+import Basket from './Basket/Basket';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
     <AuthProvider>
       <Router>
         <Switch>
-          
+     
           <Route path="/home" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
@@ -27,6 +27,7 @@ function App() {
           <Route path="/product/:id" component={FashionWomenInfo} />
           <Route path="/search/:tag/:id" component={SearchProductInfo}/>
           <Route  path="/davinci" component={davinci}></Route>
+          <Route  path="/basket" component={Basket}></Route>
         </Switch>
       </Router>
     </AuthProvider>
