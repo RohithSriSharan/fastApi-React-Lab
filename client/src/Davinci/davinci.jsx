@@ -36,7 +36,7 @@ const Davinci = () => {
 
 
         <div className='davinci-response'>
-            <p><VscHubot className='davinci-icon'/>{davinciResponse}</p>
+            <p><VscHubot className='davinci-icon'/><span>{davinciResponse}</span></p>
         </div>
         <div className='davinci-form'>
             <form className='davinci-form-form' onSubmit={handleSubmit}>

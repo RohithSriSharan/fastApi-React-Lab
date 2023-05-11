@@ -21,10 +21,18 @@ appliances = pd.read_csv("C:/Users/rohit/OneDrive/Desktop/pythonWebApps/fastApi-
 appliance_products = json.loads(appliances.to_json(orient='records'))
 
 
+toys = pd.read_csv("C:/Users/rohit/OneDrive/Desktop/pythonWebApps/fastApi-react-lab/server/app/archive (15)/STEM Toys Store.csv")
+toys_products = json.loads(toys.to_json(orient='records'))
+
+toyes = pd.read_csv("C:/Users/rohit/OneDrive/Desktop/pythonWebApps/fastApi-react-lab/server/app/archive (15)/Toys and Games.csv")
+toyes_products = json.loads(toyes.to_json(orient='records'))
+
 # Create a dictionary to hold all the products data
 products = {
     "air": ac_products,
-    "appliance": appliance_products
+    "appliance": appliance_products,
+    "toys": toys_products,
+    "toyes": toyes_products
 }
 
 @router.post("/query")

@@ -22,12 +22,14 @@
 .davinci-div .davinci-response p{
     width: 100vw;
     display: flex;
+
     color: rgb(0, 0, 0);
     font-weight: bold;
     align-items: center;
     flex-wrap: wrap;  
     padding: 10px;
 }
+
 
 .davinci-form-form{
     display: flex;
@@ -39,7 +41,6 @@
 .form-input{
     width: 85vw;
     height: 8vh;
-  
    justify-content: baseline;
    border: none;
    border-bottom: 2px solid rgba(31, 31, 28, 0.598);
