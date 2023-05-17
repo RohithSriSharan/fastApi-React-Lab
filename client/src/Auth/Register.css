@@ -1,0 +1,55 @@
+.register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    
+}
+.register form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.register .register-email{
+    display: flex;
+    
+}
+.register .register-email label{
+    font-size: x-large;
+}
+
+.register .register-email input{
+    display: flex;
+    padding-left: 10px;
+    margin-left: 10px;
+    height: 30px;
+    width: 200px;
+    border-radius: 8px;
+    
+}
+.register .register-password{
+    display: flex;
+    
+    
+}
+.register .register-password {
+    font-size: x-large;
+}
+.register .register-password input{
+    display: flex;
+    padding-left: 10px;
+    margin-left: 10px;
+    height: 30px;
+    width: 200px;
+    border-radius: 8px;
+    
+}
+.register-button{
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    background-color: black ;
+    color: white;
+    font-weight: bolder;
+}

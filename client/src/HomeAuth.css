@@ -1,0 +1,73 @@
+
+.home-auth{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    margin: auto;
+
+    flex-wrap: wrap;
+    background-color: rgba(220, 220, 220, 0.192);
+
+}
+.home-auth .home-content{
+
+    background-color: rgb(255, 255, 255);
+
+    padding: 90px 50px 90px 50px;
+    border-radius: 10px;
+    box-shadow: 2px 3px 7px 1px rgba(0, 0, 0, 0.685);
+   
+   
+}
+.buttons-auth{
+    display: flex;
+
+
+ 
+    padding: 10px;
+    border-radius: 10px;
+    gap: 2rem;
+
+    
+}
+.buttons-auth :nth-child(1){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    border-radius: 4px;
+    height: 30px;
+    width: 100%;
+    background-color: white;
+    border: none;
+    font-weight: bolder;
+    font-size: larger;
+}
+.buttons-auth :nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    border-radius: 4px;
+    height: 30px;
+    width: 100%;
+    background-color: white;
+    border: none;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+.buttons-auth :nth-child(1):focus{
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}
+.buttons-auth :nth-child(2):focus{
+    background-color: black;
+    color: white;
+    font-weight: bolder;
+}

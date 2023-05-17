@@ -63,7 +63,7 @@ const Home = () => {
   
   
   if (!isLoggedIn) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/" />;
   } else {
     return (
       <div>
