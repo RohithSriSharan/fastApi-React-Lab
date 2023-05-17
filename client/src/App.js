@@ -12,6 +12,8 @@ import FashionWomen from './Products/FashionWomen';
 import SearchProductInfo from './SearchProductInfo';
 import davinci from './Davinci/davinci';
 import Basket from './Basket/Basket';
+import HomeAuth from './HomeAuth';
+
 
 function App() {
 
@@ -21,13 +23,13 @@ function App() {
         <Switch>
      
           <Route path="/home" component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+         
           <Route path='/women-fashion' component={FashionWomen}/>
           <Route path="/product/:id" component={FashionWomenInfo} />
           <Route path="/search/:tag/:id" component={SearchProductInfo}/>
           <Route  path="/davinci" component={davinci}></Route>
           <Route  path="/basket" component={Basket}></Route>
+          <HomeAuth/>
         </Switch>
       </Router>
     </AuthProvider>

@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import AuthContext from "./AuthContext";
-
+import { FaUserAlt } from 'react-icons/fa';
+import { HiLockClosed } from 'react-icons/hi';
+import './Login.css'
 const Login = () => {
   const auth = useContext(AuthContext);
 
@@ -38,32 +40,39 @@ const Login = () => {
   const isValid = form.username !== '' && form.password !== ''
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div className="login">
+ 
       <form>
-        <label>Username</label>
-        <input
-          type="email"
-          name="username"
-          value={form.username}
-          onChange={handleChange}
-          autoComplete="current-user"
-          required
-        />
-        <br />
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          autoComplete="current-password"
-          required
-        />
-        <br />
-        <input type="submit" disabled={!isValid} onClick={handleSubmit} />
+          <div className="login-email">
+          <label><FaUserAlt/></label>
+            <input
+              type="email"
+              name="username"
+              value={form.username}
+              onChange={handleChange}
+              autoComplete="current-user"
+              placeholder="Username"
+              required
+            />
+            </div>
+        
+          <div className="login-password">
+          <label><HiLockClosed/></label>
+          <input
+            type="password"
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            autoComplete="current-password"
+            required
+            placeholder="Password"
+          />    
+          </div>
+          <div>
+          <input className="login-button" type="submit"  onClick={handleSubmit} />
+          </div>
       </form>
-      <a href="/register"><button>Register</button></a>
+      
     </div>
   );
 };

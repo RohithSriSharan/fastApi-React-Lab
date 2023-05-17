@@ -2,6 +2,10 @@ import React from 'react'
 import './Register.css'
 import {useState } from 'react'
 
+
+import { FaUserAlt } from 'react-icons/fa';
+import { HiLockClosed } from 'react-icons/hi';
+
 const Register = () => {
   const [registerform, setRegisterForm] = useState({
     email:'',
@@ -25,18 +29,24 @@ const Register = () => {
   const isFormValid = registerform.email !== '' && registerform.password !== ''
 
   return (
-    <div>
-    <h1>Register</h1>
-    <form>
-        <label>Email</label>
-        <input type='email' value={registerform.email} name='email' onChange={handleChange} autoComplete='current_email' required></input>
-        <br></br>
-        <label>Password</label>
-        <input type='password' value={registerform.password} name='password' onChange={handleChange} autoComplete='current_password' required></input>
-        <br></br>
-        <button type='submit' onClick={handleSubmit} disabled={!isFormValid} >Submit</button>
+    <div className='register'> 
+    
+      <form>
+        <div className='register-email'>
+        <label><FaUserAlt/></label>   
+          <input type='email' placeholder='Email' value={registerform.email} name='email' onChange={handleChange} autoComplete='current_email' required></input>
+        </div>
+        
+        
+        <div className='register-password'>   
+        <label><HiLockClosed/></label> 
+          <input type='password' value={registerform.password} name='password' placeholder='Password' onChange={handleChange} autoComplete='current_password' required></input>
+        </div>
+        
+    
+        <button className='register-button' type='submit' onClick={handleSubmit} disabled={!isFormValid} >Submit</button>
     </form>
-    <a href="/login"><button>Login</button></a>
+   
     </div>
   )
 }
