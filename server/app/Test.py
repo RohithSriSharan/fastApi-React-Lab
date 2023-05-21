@@ -11,6 +11,9 @@ router = APIRouter()
 #     ac_products = ac.to_json(orient='records')
 #     return (json.loads(ac_products))
 
+ 
+#EXCEL 16 digit hexCode {    =TEXT(RANDBETWEEN(0,10^16-1),"0000000000000000")     }
+
 ac = pd.read_csv("C:/Users/rohit/OneDrive/Desktop/pythonWebApps/fastApi-react-lab/server/app/archive (15)/Air Conditioners.csv")
 ac_products = json.loads(ac.to_json(orient='records'))
 
