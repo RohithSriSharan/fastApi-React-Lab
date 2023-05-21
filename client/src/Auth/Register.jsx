@@ -26,8 +26,7 @@ const Register = () => {
     const data = await response.json();
     console.log(data)
   }
-  const isFormValid = registerform.email !== '' && registerform.password !== ''
-
+ 
   return (
     <div className='register'> 
     
@@ -44,11 +43,10 @@ const Register = () => {
         </div>
         
     
-<<<<<<< HEAD
+
         <button className='register-button' type='submit' onClick={handleSubmit} >Create Account</button>
-=======
-        <button className='register-button' type='submit' onClick={handleSubmit} disabled={!isFormValid} >Submit</button>
->>>>>>> 2a3bee9dd7a55e0468b9bb9dd5322b7c01afb004
+
+
     </form>
    
     </div>

@@ -29,7 +29,7 @@ const Login = () => {
       body: JSON.stringify(form),
     });
     const data = await response.json();
-    console.log(data);
+ 
     auth.login(data.access_token);
     setRedirectToHome(true);
   };
@@ -37,7 +37,7 @@ const Login = () => {
   if (redirectToHome) {
     return <Redirect to="/home" />;
   }
-  const isValid = form.username !== '' && form.password !== ''
+  
 
   return (
     <div className="login">
@@ -69,7 +69,8 @@ const Login = () => {
           />    
           </div>
           <div>
-          <input className="login-button" type="submit"  onClick={handleSubmit} />
+          
+          <button className="login-button" type="submit" onClick={handleSubmit}>Login</button>
           </div>
       </form>
       
