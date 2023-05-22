@@ -6,9 +6,12 @@ from passlib.context import CryptContext
 from fastapi.security import OAuth2, OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from jose import jwt, JWTError
 from datetime import datetime, timedelta
+
+
+#Router imports
 from fashionWomen import womenFashion, router as fashion_women_router
 from davinci import router as davinciRouter
-
+from AirConditioner import router as ac
 from Test import router as search
 
 app = FastAPI()
@@ -161,6 +164,7 @@ app.include_router(fashion_women_router)
 
 app.include_router(davinciRouter)
 app.include_router(search)
+app.include_router(ac)
 
 @app.post('/addtobasket')
 async def addToBasket(request: Request):

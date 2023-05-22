@@ -11,7 +11,7 @@ import SearchProductInfo from './SearchProductInfo';
 import davinci from './Davinci/davinci';
 import Basket from './Basket/Basket';
 import HomeAuth from './HomeAuth';
-
+import AirConditioner from './AirConditioner/AirConditioner';
 
 function App() {
 
@@ -27,6 +27,7 @@ function App() {
           <Route path="/search/:tag/:id" component={SearchProductInfo}/>
           <Route  path="/davinci" component={davinci}></Route>
           <Route  path="/basket" component={Basket}></Route>
+          <Route  path="/ac" component={AirConditioner}></Route>
           <HomeAuth/>
         </Switch>
       </Router>
